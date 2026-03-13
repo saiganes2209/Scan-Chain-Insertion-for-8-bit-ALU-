@@ -1,6 +1,3 @@
-Scan Chain Insertion for 8-bit ALU
-Improve testability of a digital circuit by converting normal flip-flops into scan flip-flops so that internal states can be controlled and observed during testing.
-Scan Flip-Flop Verilog
 module scan_dff (
     input clk,
     input rst,
@@ -28,8 +25,6 @@ assign scan_out = q;
 endmodule
 
 
-8-bit ALU
-
 module alu8(
     input [7:0] A,
     input [7:0] B,
@@ -52,10 +47,6 @@ begin
 end
 
 endmodule
-
-ALU with Scan Chain
-
-Replace registers with scan flip-flops.
 
 module alu_scan_top(
 
