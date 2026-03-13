@@ -1,0 +1,45 @@
+module tb_scan;
+
+reg clk;
+reg rst;
+reg scan_enable;
+reg scan_in;
+
+reg [7:0] A;
+reg [7:0] B;
+reg [2:0] sel;
+
+wire [7:0] Y;
+wire scan_out;
+
+alu_scan_top dut(
+clk,rst,scan_enable,scan_in,A,B,sel,Y,scan_out
+);
+
+always #5 clk = ~clk;
+
+initial
+begin
+
+clk = 0;
+rst = 1;
+scan_enable = 0;
+
+#10 rst = 0;
+
+A = 8'b00001010;
+B = 8'b00000011;
+sel = 3'b000;
+
+#20;
+
+scan_enable = 1;
+scan_in = 1;
+
+#80;
+
+$finish;
+
+end
+
+endmodule
